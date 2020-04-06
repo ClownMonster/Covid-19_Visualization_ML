@@ -11,11 +11,11 @@
 import pandas as  pd
 
 # graphical visualization libraries
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
+#import matplotlib
+#matplotlib.use('Agg')
+#import matplotlib.pyplot as plt
 import plotly.express as px
-import seaborn as sns
+#import seaborn as sns
 import plotly.graph_objects as go
 
 import numpy as np
@@ -34,14 +34,47 @@ def print_header():
     print(list(df_world))
 
 
-df_world.sort_values(by = '3/21/20', ascending = False, inplace = True)
+def graphVisualization(date):
+    '''
+    graphical visualization library used => plotly.express
+    date is obtained from user
+    '''
+    global df_world
+    df_world.sort_values(by = date, ascending = False, inplace = True)
+
+    fig = px.bar(df_world, x='Country/Region',
+                y = date, barmode = 'group', height = 600, color = date)
+
+    fig.update_layout(title_text = f'Visualization of Confirmed Cases on {date}')
+
+    #fig = px.colors.sequential.swatches() renders color choosing site
+    fig.show()  #renders the graph in default browser
+    pass
 
 
-date = '3/21/20'
-fig = px.bar(df_world, x='Country/Region',
-             y = date, barmode = 'group', height = 600, color = date
-             )
-fig.update_layout(title_text = f'Visualization of Confirmed Cases on {date}')
+if __name__ == "__main__":
+    counter = True
+    while(counter):
+        date = input("Enter the Date : ")
+        month= input("Enter the Month : ")
+        input_data = date + '/' + month + '/' + '20' #formating to required format
+        try:
+            graphVisualization(input_data)
+        except:
+            print('Invalid Date')
+        finally:
+            if( input('Press q to Quit : ') == 'q' ):
+                print('Terminating ..')
+                counter = False
+            else:
+                pass
 
-#fig = px.colors.sequential.swatches() renders color choosing site
-fig.show()
+
+
+
+
+
+
+
+
+
