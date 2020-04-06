@@ -10,7 +10,7 @@
   D = Deaths
 
 '''
-
+# data visualization library
 import pandas as pd
 
 
@@ -105,7 +105,7 @@ def TC_vs_C_D():
     sns.set_color_codes('muted')
     sns.barplot(x='Cured',y='Name of State / UT', color='g', label='Cured', data = data )
 
-    ax.set(xlim = (0,35),ylabel = '', xlabel = 'Cases') # Setthing the labels
+    ax.set(xlim = (0,35),ylabel = 'States', xlabel = 'Cases') # Setting the labels
     sns.despine(left = True, bottom = True)
 
     fig.savefig('./v1.eps', format='eps') # saving the graph to the current folder with eps format
