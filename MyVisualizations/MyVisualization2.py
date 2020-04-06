@@ -113,28 +113,5 @@ def Date_vs_Recovered():
 
 
 
-def CC_vs_Deaths():
-
-    '''
-        This graphs plots the Total Confirmed Cases againts the Death Cases
-        on each  day.
-        plotly.graph_object is used for graphical visualization here  with Scatter Graph
-
-    '''
-
-    fig = go.Figure()
-
-    fig.add_trace( go.Bar(x = df_full['Confirmed'],
-                            y = df_full['Deaths'],
-                            #mode = 'lines+markers',
-                            name = 'Total Deaths' ) )
 
 
-    fig.update_layout(title_text = "Clown Monster's Visualization",
-                      plot_bgcolor = 'rgb(230,230,230)')
-
-    fig.show() # renders the graph in default browser
-
-
-
-CC_vs_Deaths()
