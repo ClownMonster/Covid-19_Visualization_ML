@@ -111,5 +111,57 @@ def TC_vs_C_D():
     fig.savefig('./v1.eps', format='eps') # saving the graph to the current folder with eps format
 
 
+'''
+    Now the visulation is done using
+    plotly.express which is another
+    graphical data visualization library.
+    class VzlPlotly contains various versions of the data and their graphs.
+
+'''
+
+class VzlPlotly:
+    def __init__(self,df_India):
+        self.df_India = df_India
+        pass
 
 
+    def state_vs_CC(self):
+        fig = px.bar(data_frame = df_India,
+                     x='Name of State / UT',
+                     y='Total confirmed Cases',
+                    height= 400, barmode='group')
+
+        fig.update_layout(title_text = 'Confirmed Cases in Each State of India')
+        fig.show() #renders the graph in default browser
+        pass
+
+    def state_vs_AC(self):
+        fig = px.bar(data_frame = df_India,
+                        x='Name of State / UT',
+                        y='Active Cases',
+                    height= 400, barmode = 'group')
+
+        fig.update_layout(title_text = 'Active Cases in Each State of India')
+        fig.show() #renders the graph in default browser
+        pass
+
+
+    def state_vs_Deaths(self):
+        fig = px.bar(data_frame = df_India,
+                     x='Name of State / UT',
+                     y='Death',
+                    height= 400, barmode='group')
+
+        fig.update_layout(title_text = 'Death Cases in Each State of India')
+        fig.show() #renders the graph in default browser
+        pass
+
+    def state_vs_Cured(self):
+        fig = px.bar(data_frame = df_India,
+                     x='Name of State / UT',
+                     y='Cured',
+                    height= 400, barmode='group')
+
+        fig.update_layout(title_text = 'Cured Cases in Each State of India', plot_bgcolor="#FFF")
+        fig.show() #renders the graph in default browser
+        pass
