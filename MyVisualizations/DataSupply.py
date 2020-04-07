@@ -14,7 +14,7 @@ def Supply(CountryName):
     global df
     db_returned = df[ df['Country/Region'] == CountryName] # Data Frame of required Country
     db_returned = db_returned[ db_returned['Confirmed'] > 0.0 ] # Data Frame with CC > 0 for Optimization
-    print(db_returned)
+    db_returned.sort_values(by = 'Confirmed'  ,ascending = True, inplace = True)
     return db_returned
 
 
