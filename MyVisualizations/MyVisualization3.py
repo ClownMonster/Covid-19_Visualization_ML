@@ -25,13 +25,13 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
-df_world = pd.read_csv('../Data_contents/time_series_covid19_confirmed_global.csv')
-df_world.drop( ['Province/State', 'Lat', 'Long'], axis = 1, inplace = True )
+df_world_confirmed = pd.read_csv('../Data_contents/time_series_covid19_confirmed_global.csv')
+df_world_confirmed.drop( ['Province/State', 'Lat', 'Long'], axis = 1, inplace = True )
 
 def print_header():
     '''' print(df_India.columns.values) this is to print the headers list this can
     done with  print(list(df_India)) '''
-    print(list(df_world))
+    print(list(df_world_confirmed))
 
 
 def graphVisualizationConfirmed(date):
@@ -39,10 +39,10 @@ def graphVisualizationConfirmed(date):
     graphical visualization library used => plotly.express
     date is obtained from user
     '''
-    global df_world
-    df_world.sort_values(by = date, ascending = False, inplace = True)
+    global df_world_confirmed
+    df_world_confirmed.sort_values(by = date, ascending = False, inplace = True)
 
-    fig = px.bar(df_world, x='Country/Region',
+    fig = px.bar(df_world_confirmed, x='Country/Region',
                 y = date, barmode = 'group', height = 600, color = date)
 
     fig.update_layout(title_text = f'Visualization of Confirmed Cases on {date}')
