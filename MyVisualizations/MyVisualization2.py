@@ -8,11 +8,11 @@ includes countries name, latitute and longitude,
 import pandas as  pd
 
 # graphical visualization libraries
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-import plotly.express as px
-import seaborn as sns
+#import matplotlib
+#matplotlib.use('Agg')
+#import matplotlib.pyplot as plt
+#import plotly.express as px
+#import seaborn as sns
 import plotly.graph_objects as go
 
 

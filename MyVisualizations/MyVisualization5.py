@@ -25,7 +25,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
-df_world = pd.read_csv('../Data_contents/time_series_covid19_confirmed_global.csv')
+df_world = pd.read_csv('../Data_contents/time_series_covid19_recovered_global.csv')
 df_world.drop( ['Province/State', 'Lat', 'Long'], axis = 1, inplace = True )
 
 def print_header():
@@ -34,7 +34,7 @@ def print_header():
     print(list(df_world))
 
 
-def graphVisualizationConfirmed(date):
+def graphVisualizationRecovered(date):
     '''
     graphical visualization library used => plotly.express
     date is obtained from user
@@ -45,7 +45,7 @@ def graphVisualizationConfirmed(date):
     fig = px.bar(df_world, x='Country/Region',
                 y = date, barmode = 'group', height = 600, color = date)
 
-    fig.update_layout(title_text = f'Visualization of Confirmed Cases on {date}')
+    fig.update_layout(title_text = f'Visualization of Recovered Cases on {date}')
 
     #fig = px.colors.sequential.swatches() renders color choosing site
     fig.show()  #renders the graph in default browser
@@ -59,7 +59,7 @@ if __name__ == "__main__":
         month= input("Enter the Month : ")
         input_data = month + '/' + date + '/' + '20' #formating to required format
         try:
-            graphVisualizationConfirmed(input_data)
+            graphVisualizationRecovered(input_data)
         except:
             print('Invalid Date')
         finally:

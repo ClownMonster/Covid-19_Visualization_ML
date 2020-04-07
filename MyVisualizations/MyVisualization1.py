@@ -14,7 +14,7 @@
 import pandas as pd
 
 
-import numpy as np
+#import numpy as np
 
 # graphical visualization libraries
 import matplotlib
@@ -26,7 +26,7 @@ removed we get  Segmentation fault (core dumped)
 '''
 from matplotlib import pyplot as plt
 import plotly.express as px
-import plotly.graph_objects as go
+#import plotly.graph_objects as go
 import seaborn as sns
 
 # visualization with maps
