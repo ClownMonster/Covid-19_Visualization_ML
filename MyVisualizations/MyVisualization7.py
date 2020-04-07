@@ -21,7 +21,7 @@ except:
     print('Not able to get data')
 
 fig = make_subplots( rows =  2, cols = 2,
-    subplot_titles= ('China', 'Korea', 'India'),
+    subplot_titles= ('China', 'South Korea', 'India'),
     specs= [
                [     {},          {}  ],
                [ {'colspan': 2}, None]
@@ -42,6 +42,6 @@ fig.update_layout(coloraxis = dict(colorscale = 'Bluered_r'), showlegend = False
                  title_text = 'Total Confirmed Cases ',
                  plot_bgcolor = 'rgb(230,230,230)' )
 
-fig.show()
+fig.show()  #renders the graph in default browser
 
 
